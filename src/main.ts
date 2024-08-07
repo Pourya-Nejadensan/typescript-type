@@ -115,3 +115,61 @@ console.log(
     studentUpdate3.grades.map(grade => grade === undefined ? '*' : grade).join(",")
 )
 
+/*
+Step 4: Print a list of all students in the console
+Task:
+
+
+Write a function that prints a list of all students in the console.
+
+
+Example:
+
+
+Anton Meier (16)
+===========================
+Grades: 1,4,3,1,A,*,1,2
+
+Berta Müller (17)
+===========================
+Grades: A,*,1
+
+Cäsar Schmidt (17)
+==========================
+Grades: A,1,*,3,2,4,5
+ */
+
+const studentsUpdate4: StudentUpdate3[] = [
+    {
+        firstName: "Anton",
+        lastName: "Meier",
+        age: 16,
+        grades: [1, 4, 3, 1, 'A', undefined, 1, 2],
+    },
+    {
+        firstName: "Berta",
+        lastName: "Müller",
+        age: 17,
+        grades: ['A', undefined, 1],
+    },
+    {
+        firstName: "Cäsar",
+        lastName: "Schmidt",
+        age: 17,
+        grades: ['A', 1, undefined, 3, 2, 4, 5],
+    },
+];
+
+function printStudent(student: StudentUpdate3): void {
+    console.log(`${student.firstName} ${student.lastName} (${student.age})`);
+    console.log("=".repeat(30));
+    console.log(`Grades: ${student.grades.map(grade => grade === undefined ? '*' : grade).join(",")}`);
+}
+function printAllStudents(students: StudentUpdate3[]): void {
+    students.forEach(element => {
+        printStudent(element);
+        console.log(""); // Add a blank line between students
+    });
+}
+
+printAllStudents(studentsUpdate4);
