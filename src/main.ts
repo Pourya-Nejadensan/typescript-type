@@ -1,24 +1,34 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+/*
+Step 1: Write a function that outputs a student with their grades, where a student should be output with first name, last name, age, and a list of grades.
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+    Highlight the output of the first and last names, age, and grades with a line of 30x "=".
+    Example:
+
+
+Anton Meier (17)
+==============================
+Grades: 1,4,3,1,3,2,1,2
+*/
+
+type Student = {
+    firstName: string,
+    lastName: string,
+    age: number,
+    grades: number[]
+}
+
+const numbers: number[] = [1,4,3,1,3,2,1,2]
+
+const studen: Student = {
+    firstName: 'Anton',
+    lastName: 'Meier',
+    age: 0,
+    grades: numbers
+}
+
+console.log(
+    studen.firstName + ' ' + studen.lastName + ' (' + studen.age + ')', '\n',
+    '==============================', '\n',
+    'Grades: ', studen.grades.toString()
+)
