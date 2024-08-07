@@ -70,5 +70,48 @@ const studentUpdate2: StudentUpdate2 = {
 console.log(
     studentUpdate2.firstName + ' ' + studentUpdate2.lastName + ' (' + studentUpdate2.age + ')', '\n',
     '==============================', '\n',
-    'Noten: ', studentUpdate2.grades.toString()
+    'Noten: ', '\n',
+    studentUpdate2.grades.toString()
 )
+
+/*
+Step 3: Allow undefined as a value (displayed as *)
+Task:
+
+
+Ensure that "undefined" is now supported as a value in the grades. The function should output the student's grades and represent "undefined" as "*". (For example, if the student was absent and not graded).
+
+
+Example:
+
+
+Anton Meier (17)
+===========================
+
+ Noten:
+A,2,*,3,1,B,*,5
+ */
+
+type GradeUpdate3 = number | string | undefined;
+
+type StudentUpdate3 = {
+    firstName: string,
+    lastName: string,
+    age: number,
+    grades: GradeUpdate3[]
+}
+
+const studentUpdate3: StudentUpdate3 = {
+    firstName: 'Anton',
+    lastName: 'Meier',
+    age: 17,
+    grades: ['A', 2, undefined, 3, 1, 'B', undefined, 5]
+}
+
+console.log(
+    studentUpdate3.firstName + ' ' + studentUpdate3.lastName + ' (' + studentUpdate3.age + ')', '\n',
+    '==============================', '\n',
+    'Noten: ', '\n',
+    studentUpdate3.grades.map(grade => grade === undefined ? '*' : grade).join(",")
+)
+
